@@ -1,0 +1,704 @@
+1.api分析：
+host: v3.wufazhuce.com:8000
+header:
+     内容id列表：/api/onelist/idlist/?channel=huawei&version=4.1.0&uuid=&platform=android
+     内容列表：/api/adposlist/android?channel=huawei&version=4.1.0&uuid=&platform=android
+     广告列表：/api/adlist/android?channel=huawei&version=4.1.0&uuid=&platform=android
+今日内容地址的结构：v3.wufazhuce.com:8000/api/onelist/内容id/0?channel=huawei&version=4.1.0&uuid=&platform=android
+
+2.得到内容分析：
+
+1)请求内容id得到的json：
+{
+res: 0,
+data: ["3967","3970","3964","3957","3960","3949","3948","3950","3951","3933"]
+}
+data中存放每日内容集合的id，根据此id获得内容的地址
+
+2)请求内容列表得到的json：
+{
+res: 0,
+data: {essay: [ ],hp: [ ],question: [ ],serial: [ ],music: [ ],movie: [ ],thing: [ ],readingbanner: [ ],musicbottom: [ ]}
+}
+data中的内容依次为今日内容中包含的项目：文章， hp， 问答， 连载， 音乐， 电影， thing， readingbanner， musicbottom
+项目与获得的数据项相对应
+
+3)请求今日内容得到的json：
+原内容为unicode格式，汉字为乱码，经JSONView后变为如下：
+{
+    res: 0,
+    data: {
+        id: "3967",
+        weather: {
+            city_name: "地球",
+            date: "2017-04-20",
+            temperature: "-275",
+            humidity: "120",
+            climate: "对流层",
+            wind_direction: "一阵妖风",
+            hurricane: "36级",
+            icons: {
+                day: "weather_icon_unknown",
+                night: "weather_icon_unknown_night"
+            }
+        },
+        date: "2017-04-20 06:00:00",
+        content_list: [
+            {
+                id: "11220",
+                category: "0",
+                display_category: 6,
+                item_id: "1684",
+                title: "插画",        //pic标题1
+                forward: "人就是这样，偶尔觉得活着真好，偶尔觉得死了也不错。所以只能在觉得“死了也不错”的时候，默默提醒自己，还记得“活着真好”的时刻吗？再等等，它说不定哪天就会出现了。",        //words
+                img_url: "http://image.wufazhuce.com/FmxBtsJ5ccxefQ7t302-IfeU77tg",     //图片url
+                like_count: 7476,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-20 10:33:23",
+                author: {
+
+                },
+                video_url: "",
+                audio_url: "",
+                audio_platform: 2,
+                start_video: "",
+                volume: "VOL.1657",
+                pic_info: "有鹿",     //pic标题2
+                words_info: "赫恩曼尼",     //words作者
+                subtitle: "",
+                number: 0,
+                serial_id: 0,
+                serial_list: [
+
+                ],
+                movie_story_id: 0,
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "1684",
+                content_type: "0",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/one/1684",
+                share_info: {
+                    url: "http://m.wufazhuce.com/one/1684",
+                    image: "http://image.wufazhuce.com/FmxBtsJ5ccxefQ7t302-IfeU77tg",
+                    title: "VOL.1657",
+                    content: "人就是这样，偶尔觉得活着真好，偶尔觉得死了也不错。所以只能在觉得“死了也不错”的时候，默默提醒自己，还记得“活着真好”的时刻吗？再等等，它说不定哪天就会出现了。"
+                },
+                share_list: {
+                    wx: {
+                        title: "",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    weibo: {
+                        title: "ONE·一个 人就是这样，偶尔觉得活着真好，偶尔觉得死了也不错。所以只能在觉得“死了也不错”的时候，默默提醒自己，还记得“活着真好”的时刻吗？再等等，它说不定哪天就会出现了。——赫恩曼尼 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: "",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    }
+                },
+                tag_list: [
+
+                ],
+                orientation: "1"
+            },
+            {
+                id: "11185",
+                category: "1",
+                display_category: 6,
+                item_id: "2261",
+                title: "定时打卡",
+                forward: "他不知道摆脱一种习惯需要多久，需要花多大力气，但是他现在知道了无法摆脱一种习惯是什么感觉。",
+                img_url: "http://image.wufazhuce.com/FuLxq1A9p07ecEfqGQ5gH27XpaVt",
+                like_count: 915,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-19 12:04:27",
+                author: {
+                    user_id: "4814785",
+                    user_name: "李元",
+                    desc: "作家、编剧。虹口区喝奶茶第一名。新书《谈恋爱之前谈什么》现已上市。@Mile_Sagan李元",
+                    wb_name: "@Mile_Sagan李元",
+                    is_settled: "0",
+                    settled_type: "0",
+                    summary: "作家、编剧。虹口区喝奶茶第一名。",
+                    fans_total: "550",
+                    web_url: "http://image.wufazhuce.com/FlLGrzYlmd_FLsmtztZVewZwRVbV"
+                },
+                video_url: "",
+                audio_url: "",
+                audio_platform: 2,
+                start_video: "",
+                volume: 0,
+                pic_info: "",
+                words_info: "",
+                subtitle: "",
+                number: 0,
+                serial_id: 0,
+                serial_list: [
+
+                ],
+                movie_story_id: 0,
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "2261",
+                content_type: "1",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/article/2261",
+                share_info: {
+                    url: "http://m.wufazhuce.com/article/2261",
+                    image: "http://image.wufazhuce.com/FuLxq1A9p07ecEfqGQ5gH27XpaVt",
+                    title: "定时打卡 作者/李元",
+                    content: "他现在知道了无法摆脱一种习惯是什么感觉。"
+                },
+                share_list: {
+                    wx: {
+                        title: "ONE STORY | 定时打卡",
+                        desc: "文/李元 他现在知道了无法摆脱一种习惯是什么感觉。",
+                        link: "http://m.wufazhuce.com/article/2261",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    },
+                    weibo: {
+                        title: "ONE·一个《ONE STORY | 定时打卡》 文/李元： 他现在知道了无法摆脱一种习惯是什么感觉。 阅读全文：http://m.wufazhuce.com/article/2261 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: "定时打卡",
+                        desc: "他现在知道了无法摆脱一种习惯是什么感觉。",
+                        link: "http://m.wufazhuce.com/article/2261",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    }
+                },
+                tag_list: [
+                    {
+                        id: "7",
+                        title: "ONE STORY"
+                    }
+                ]
+            },
+            {
+                id: "11221",
+                category: "1",
+                display_category: 6,
+                item_id: "2271",
+                title: "软糖| “世界末日” _ limbo",
+                forward: "我们每周会选择一个主题，由七个作者绘制不同风格的短篇漫画，每天一幅。",
+                img_url: "http://image.wufazhuce.com/Fq0qf2f-F6IMbA_NgXJbADQIr4Vh",
+                like_count: 185,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-19 10:16:43",
+                author: {
+                    user_id: "7746431",
+                    user_name: "Mojo",
+                    desc: "他也不知道怎么介绍自己。",
+                    wb_name: "",
+                    is_settled: "0",
+                    settled_type: "0",
+                    summary: "他也不知道怎么介绍自己。",
+                    fans_total: "488",
+                    web_url: "http://image.wufazhuce.com/Fuhatny3WFROScPTrzJ6G3i2o48y"
+                },
+                video_url: "",
+                audio_url: "",
+                audio_platform: 2,
+                start_video: "",
+                volume: 0,
+                pic_info: "",
+                words_info: "",
+                subtitle: "",
+                number: 0,
+                serial_id: 0,
+                serial_list: [
+
+                ],
+                movie_story_id: 0,
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "2271",
+                content_type: "1",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/article/2271",
+                share_info: {
+                    url: "http://m.wufazhuce.com/article/2271",
+                    image: "http://image.wufazhuce.com/Fq0qf2f-F6IMbA_NgXJbADQIr4Vh",
+                    title: "软糖| “世界末日” _ limbo 作者/Mojo",
+                    content: "我们每周会选择一个主题，由七个作者绘制不同风格的短篇漫画，每天一幅。"
+                },
+                share_list: {
+                    wx: {
+                        title: "软糖漫画 | 软糖| “世界末日” _ limbo",
+                        desc: "文/Mojo 我们每周会选择一个主题，由七个作者绘制不同风格的短篇漫画，每天一幅。",
+                        link: "http://m.wufazhuce.com/article/2271",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    },
+                    weibo: {
+                        title: "ONE·一个《软糖漫画 | 软糖| “世界末日” _ limbo》 文/Mojo： 我们每周会选择一个主题，由七个作者绘制不同风格的短篇漫画，每天一幅。 阅读全文：http://m.wufazhuce.com/article/2271 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: "软糖| “世界末日” _ limbo",
+                        desc: "我们每周会选择一个主题，由七个作者绘制不同风格的短篇漫画，每天一幅。",
+                        link: "http://m.wufazhuce.com/article/2271",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    }
+                },
+                tag_list: [
+                    {
+                        id: "1",
+                        title: "软糖漫画"
+                    }
+                ]
+            },
+            {
+                id: "11227",
+                category: "1",
+                display_category: 6,
+                item_id: "2275",
+                title: "写感情和谈感情一样，都是很难的",
+                forward: "一段感情的当事人，就是一部小说的作者，一段感情的围观者，也就像是读者。",
+                img_url: "http://image.wufazhuce.com/Fil8__GRBDyXey2oO4dv2T_SPubQ",
+                like_count: 489,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-19 16:20:24",
+                author: {
+                    user_id: "6258584",
+                    user_name: "韩松落",
+                    desc: "专栏作家。华语电影传媒大奖、华语优质电影大奖评委，《GQ》中文版2012年“年度专栏作家”。微信公众号：韩松落见好",
+                    wb_name: "@韩松落",
+                    is_settled: "0",
+                    settled_type: "0",
+                    summary: "专栏作家。华语电影传媒大奖、华语优质电影大奖评委，《GQ》中文版2012年“年度专栏作家”。微信公众号：韩松落见好",
+                    fans_total: "580",
+                    web_url: "http://image.wufazhuce.com/Fp4wC5cAQGZ9GNKiKvFeN8BBcHBF"
+                },
+                video_url: "",
+                audio_url: "",
+                audio_platform: 2,
+                start_video: "",
+                volume: 0,
+                pic_info: "",
+                words_info: "",
+                subtitle: "",
+                number: 0,
+                serial_id: 0,
+                serial_list: [
+
+                ],
+                movie_story_id: 0,
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "2275",
+                content_type: "1",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/article/2275",
+                share_info: {
+                    url: "http://m.wufazhuce.com/article/2275",
+                    image: "http://image.wufazhuce.com/Fil8__GRBDyXey2oO4dv2T_SPubQ",
+                    title: "写感情和谈感情一样，都是很难的 作者/韩松落",
+                    content: "写故事，经营感情，其实都是修行。"
+                },
+                share_list: {
+                    wx: {
+                        title: "韩松落专栏 | 写感情和谈感情一样，都是很难的",
+                        desc: "文/韩松落 写故事，经营感情，其实都是修行。",
+                        link: "http://m.wufazhuce.com/article/2275",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    },
+                    weibo: {
+                        title: "ONE·一个《韩松落专栏 | 写感情和谈感情一样，都是很难的》 文/韩松落： 写故事，经营感情，其实都是修行。 阅读全文：http://m.wufazhuce.com/article/2275 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: "写感情和谈感情一样，都是很难的",
+                        desc: "写故事，经营感情，其实都是修行。",
+                        link: "http://m.wufazhuce.com/article/2275",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    }
+                },
+                tag_list: [
+                    {
+                        id: "30",
+                        title: "韩松落专栏"
+                    }
+                ]
+            },
+            {
+                id: "11224",
+                category: "2",
+                display_category: 6,
+                item_id: "293",
+                title: "猫王乔丹 · 最终章",
+                forward: "我固执地相信乔丹还活着，就像我相信过猫是会死而复生的动物。",
+                img_url: "http://image.wufazhuce.com/FjOokXhDtnNo3K4d_UCbf3MVUmMj",
+                like_count: 179,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-19 23:18:47",
+                author: {
+                    user_id: "4814892",
+                    user_name: "蔡骏",
+                    desc: "蔡骏，著名悬疑作家。长篇新作《宛如昨日》现已上市。",
+                    wb_name: "@蔡骏",
+                    is_settled: "0",
+                    settled_type: "0",
+                    summary: "著名悬疑作家。",
+                    fans_total: "873",
+                    web_url: "http://image.wufazhuce.com/FkvogAHXTKaQ8eDyxB9hIxkdszyE"
+                },
+                video_url: "",
+                audio_url: "",
+                audio_platform: 2,
+                start_video: "",
+                volume: 0,
+                pic_info: "",
+                words_info: "",
+                subtitle: "连载：第7章",
+                number: "7",
+                serial_id: "41",
+                serial_list: [
+                    "287",
+                    "288",
+                    "289",
+                    "290",
+                    "291",
+                    "292",
+                    "293"
+                ],
+                movie_story_id: 0,
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "293",
+                content_type: "2",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/serial/293",
+                share_info: {
+                    url: "http://m.wufazhuce.com/serial/293",
+                    image: "http://image.wufazhuce.com/FjOokXhDtnNo3K4d_UCbf3MVUmMj",
+                    title: "猫王乔丹 · 最终章 作者/蔡骏",
+                    content: "我固执地相信乔丹还活着，就像我相信过猫是会死而复生的动物。"
+                },
+                share_list: {
+                    wx: {
+                        title: "连载 | 猫王乔丹 · 最终章",
+                        desc: "文/蔡骏 我固执地相信乔丹还活着，就像我相信过猫是会死而复生的动物。",
+                        link: "http://m.wufazhuce.com/serial/293",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    },
+                    weibo: {
+                        title: "ONE·一个《连载 | 猫王乔丹 · 最终章》 文/蔡骏： 我固执地相信乔丹还活着，就像我相信过猫是会死而复生的动物。 阅读全文：http://m.wufazhuce.com/serial/293 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: "猫王乔丹 · 最终章",
+                        desc: "我固执地相信乔丹还活着，就像我相信过猫是会死而复生的动物。",
+                        link: "http://m.wufazhuce.com/serial/293",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    }
+                },
+                tag_list: [
+
+                ]
+            },
+            {
+                id: "11129",
+                category: "3",
+                display_category: 6,
+                item_id: "1700",
+                title: " 为什么会流行锥子脸？",
+                forward: "越来越碎片化、零散化的互联网时代审美模式成为罪魁祸首。",
+                img_url: "http://image.wufazhuce.com/FrIXDe5RY__oEdPeO4vcE3Omnm3N",
+                like_count: 259,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-20 22:08:59",
+                author: {
+                    user_id: "0",
+                    user_name: "埃及大法师问道",
+                    web_url: "",
+                    summary: "",
+                    desc: "",
+                    is_settled: "",
+                    settled_type: "",
+                    fans_total: "",
+                    wb_name: ""
+                },
+                video_url: "",
+                audio_url: "",
+                audio_platform: 2,
+                start_video: "",
+                volume: 0,
+                pic_info: "",
+                words_info: "",
+                subtitle: "",
+                number: 0,
+                serial_id: 0,
+                serial_list: [
+
+                ],
+                movie_story_id: 0,
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "1700",
+                content_type: "3",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/question/1700",
+                share_info: {
+                    url: "http://m.wufazhuce.com/question/1700",
+                    image: "http://image.wufazhuce.com/FrIXDe5RY__oEdPeO4vcE3Omnm3N",
+                    title: " 为什么会流行锥子脸？",
+                    content: "以锥子脸为美，渐渐成为当代社会对女性美丑的评判标准，许多女人们都想方设法把自己变成锥子脸，请问为什么流行锥子脸？锥子脸又美在何处呢？"
+                },
+                share_list: {
+                    wx: {
+                        title: "问答 | 为什么会流行锥子脸？",
+                        desc: "文/纽太普 越来越碎片化、零散化的互联网时代审美模式成为罪魁祸首。",
+                        link: "http://m.wufazhuce.com/question/1700",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    },
+                    weibo: {
+                        title: "ONE·一个《问答 | 为什么会流行锥子脸？》 文/纽太普： 越来越碎片化、零散化的互联网时代审美模式成为罪魁祸首。 阅读全文：http://m.wufazhuce.com/question/1700 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: " 为什么会流行锥子脸？",
+                        desc: "越来越碎片化、零散化的互联网时代审美模式成为罪魁祸首。",
+                        link: "http://m.wufazhuce.com/question/1700",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    }
+                },
+                tag_list: [
+
+                ],
+                answerer: {
+                    user_id: "0",
+                    user_name: "纽太普",
+                    web_url: "",
+                    summary: "",
+                    desc: "",
+                    is_settled: "",
+                    settled_type: "",
+                    fans_total: "",
+                    wb_name: ""
+                }
+            },
+            {
+                id: "11193",
+                category: "4",
+                display_category: 6,
+                item_id: "1811",
+                title: "真爱就算没有战胜现实那又怎样",
+                forward: "“如果我们得奖了，我在天堂肯定比你知道得早。”",
+                img_url: "http://image.wufazhuce.com/FsraJ-pfnB7GZ7J6QJyUV9AnMPmH",
+                like_count: 349,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-18 18:06:54",
+                author: {
+                    user_id: "7645750",
+                    user_name: "李卤味",
+                    desc: "偏离职业轨道的录音师，特长是站在滑板上做梦以及食量惊人。",
+                    wb_name: "",
+                    is_settled: "0",
+                    settled_type: "0",
+                    summary: "偏离职业轨道的录音师",
+                    fans_total: "96",
+                    web_url: "http://image.wufazhuce.com/Fm5C8exquukXVWUyyj7r9UCe4X91"
+                },
+                video_url: "",
+                audio_url: "1773167152",
+                audio_platform: "1",
+                start_video: "",
+                volume: 0,
+                pic_info: "",
+                words_info: "",
+                subtitle: "When I'm Gone",
+                number: 0,
+                serial_id: 0,
+                serial_list: [
+
+                ],
+                movie_story_id: 0,
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "1811",
+                content_type: "4",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/music/1811",
+                share_info: {
+                    url: "http://m.wufazhuce.com/music/1811",
+                    image: "http://image.wufazhuce.com/FsraJ-pfnB7GZ7J6QJyUV9AnMPmH",
+                    title: "「一个」音乐: 李卤味 When I'm Gone",
+                    content: " var ONEGLOBAL={cache:"placeholder-one-cache-flag"} 今天我们分享的是一个MV背后的故事，让人充满感慨。MV是来自今年获得了格莱美奖的夫妻档Joey+Rory的《When I&lsquo;m Gone》。这首让人心碎的歌收录在Joey+Rory于2012年发行的专辑《His and Hers》里面，歌曲唱的是即将离开人世的妻子对丈夫的临终道别，希望丈夫能早日走出阴霾。这首歌原本是和千千万万的伤感情歌一样只是虚构的情景，没想到，几年后却一曲成谶&mdash;&mdash;Joey因为癌症末期离世。Joey+Rory是美国音乐之乡Nashville知名的乡村蓝草组合，他们的音乐总是非常能让人感到自在放松，仿佛真的嗅得到户外青草的清新和甜腻的虐狗恩爱气息。毕竟他们相爱十五年依然热恋并且创作时默契十足。Joey+Rory的故事看起来简直像一部甜蜜到有点俗套却又充满波折且情节动人的八点档连续剧。在两人遇见之前，Rory本身就是一个在Nashville小有名气的音乐人，许多热门歌曲都有他参与创作，包括了 Blake Shelton的《Some Beach》、Clay Walker的《The Chain of Love》，Easton Corbin《A Little More Country Than Tha》等等。而Joey则是诊所的一名兽医。两人在热恋并结婚之后，组成了Joey+Rory正式出道，首张专辑《The Life of a Song》就登上了Billiboard的乡村音乐专辑Top 10。一切看上去都一帆风顺，在2014年，他们的女儿Indiana出生。从此虐狗二人组便成了幸福的一家三口。随后波澜就接踵而至。在Indiana出生不久，医生告知他们，Indiana天生就患有唐氏综合症。尽管如此，Joey和Rory对女儿的爱依然没有减少分毫，反而更加用心去呵护这一个小天使，希望她在一个充满爱的环境里长大，不受外界异样眼光的伤害。两人更宣布在2014年这一年里暂停音乐事业在家陪伴女儿成长。故事如果一直顺利地发展下去依然会是非常的美满，但现实的变数实在是太多了。就在他们宣布暂时暂停音乐事业几个月后，Joey被诊断出宫颈癌。经历了一段时间的治疗和手术后，当时Joey体内的肿瘤被成功清除并康复出院。谁知道在次年Joey再次身体不适就医时，医生发现她癌症复发并且已经转移到了身体的其他部位。但他们仍然没有放弃希望，配合医疗团队展开了积极的治疗，支撑Joey走过那段日子的是家人的爱以及她的信仰。在辗转前往医院治疗的时期，她和Rory还在酒店创作并录制了他们这个组合最后一张专辑《Hymns》。令人叹息的是，现实和电影不一样，不是所有真爱都能战胜现实的残酷。在2015年底，Rory在博客上宣布，妻子Joey的癌症已经到了末期，过去几个月里让Joey受尽折磨的治疗并没有起到效果，被清除的肿瘤全部都复发并且扩散，已经没有其他的治疗方案可以选择了，当下唯一的做法是尽可能的减少Joey的痛苦，让她安静地离去。Joey对于自己可能熬不过这一次早有预感，已经做好了心理准备。在自己离开后，Rory一定会伤心不已，但时间会慢慢让他痊愈。她最放心不下的是当时还不满两岁的女儿Indiana。Indiana是天生的唐氏综合征患儿，虽然她看世界的方式和许多人会有所不同，但她和普通的小朋友一样喜欢粘着妈妈。Joey想，自己过世之后Rory要怎么和Indiana解释妈妈的离开，又要如何安抚Indiana再也抱不到妈妈时的情绪呢？Joey唯一能做的，就是让女儿慢慢疏远自己，和爸爸更亲一点。Joey过世后，Rory在采访中表示，女儿Indiana在Joey离开后完全没有哭着要妈妈，一次也没有，仿佛Joey从来就没有存在过。这太让人难过太残忍了，但同时也是目前最好的结果。Joey在重病的时候把这一重担都扛在了自己的肩上，减轻了Rory以后独自面对女儿时的负担，也让根本无法理解这一切的女儿Indiana不那么难过。在去年2月Joey弥留之际，她和Rory在病房里一起看格莱美颁奖典礼，他们凭单曲《If I Needed You》入围了最佳乡村组合奖。遗憾的是他们去年陪跑了，Joey没能亲眼看到自己拿格莱美奖时的情景。Joey还是很乐观地对Rory说，如果他们这最后一张专辑明年入围了的话，请Rory对她保证，他一定会出席并替她好好地感受。还乐观地开玩笑说：&ldquo;如果我们得奖了，我在天堂肯定比你知道得早。&rdquo;&nbsp; &nbsp;Down To The River To PrayAlison Krauss | A Hundred Miles or More: A Collection次月，Joey在家人和朋友的陪伴下，安静地闭上眼睛离开了人世。她的葬礼简单而温馨。歌手演唱着她生前最爱的《Go Down to the River to Pray》，她长眠于老家田纳西的山野中。而今年的格莱美颁奖典礼上，Joey+Rory凭着Joey生前参与录制的最后一张专辑《Hymns》入围并获得了最近本土福音专辑。Rory如约出席，上台致辞时他感谢了亡妻Joey，还幽默地和观众分享了Joey当时开玩笑说的&ldquo;如果我们得奖了，我在天堂肯定比你知道得早。&rdquo;最后动情地表示，这个奖项是献给Joey的。Joey离世后，Rory继续在博客记录女儿Indiana成长的点点滴滴，开始慢慢习惯Joey不在的生活，今天会比昨天更好过一些。他每天都会带着女儿Indiana到Joey的墓前和Joey讲一下生活大小事，开心的或烦恼的。&nbsp; &nbsp;If I Needed YouJoey + Rory | Joey + RoryCountry Classics: A Tapestry of Our Musical HeritageIndiana可能很难理解妈妈到底发生了什么事，但Rory表示，一定会耐心地一点点告诉她。他和Joey生活的点点滴滴他都有用影像和歌曲记录下来，将来他会播放给Indiana。就算Indiana最终还是无法真正理解妈妈的爱，但，她的存在，就是Joey的爱最好的证明。当年《When I&#39;m Gone》的MV，也成了Joey提前的临终道别。You&#39;ll lie down in our big bed你躺在我们以前的床上Dread the dark and dread the dawn既畏惧夜黑也担忧明天But you&#39;ll be alright on that first night when I&#39;m gone我将离去，但一切都会好起来文/李卤味 "
+                },
+                share_list: {
+                    wx: {
+                        title: "音乐 | 真爱就算没有战胜现实那又怎样",
+                        desc: "文/李卤味 我将离去，但一切都会好起来。",
+                        link: "http://m.wufazhuce.com/music/1811",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    },
+                    weibo: {
+                        title: "ONE·一个《音乐 | 真爱就算没有战胜现实那又怎样》 文/李卤味： 我将离去，但一切都会好起来。 阅读全文：http://m.wufazhuce.com/music/1811 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: "真爱就算没有战胜现实那又怎样",
+                        desc: "我将离去，但一切都会好起来。",
+                        link: "http://m.wufazhuce.com/music/1811",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    }
+                },
+                tag_list: [
+
+                ],
+                music_name: "When I'm Gone",
+                audio_author: "Joey + Rory",
+                audio_album: "His And Hers"
+            },
+            {
+                id: "11237",
+                category: "5",
+                display_category: 6,
+                item_id: "685",
+                title: "听说《王者荣耀》要改编成电影，为啥我隐隐觉得担忧？",
+                forward: "各位玩家先把你们手中的刀放下，听我慢慢解释。",
+                img_url: "http://image.wufazhuce.com/FtPPklywXYjdyLhHPGRWyrcGrBJ3",
+                like_count: 171,
+                post_date: "2017-04-20 06:00:00",
+                last_update_date: "2017-04-20 15:31:43",
+                author: {
+                    user_id: "5664698",
+                    user_name: "肉山大魔王",
+                    desc: "我从小就想做个黑帮。",
+                    wb_name: "",
+                    is_settled: "0",
+                    settled_type: "0",
+                    summary: "我从小就想做个黑帮。",
+                    fans_total: "1616",
+                    web_url: "http://image.wufazhuce.com/FvNnsE2f_tS6BI0XnwsYYEPe-5U5"
+                },
+                video_url: "",
+                audio_url: "",
+                audio_platform: 2,
+                start_video: "",
+                volume: 0,
+                pic_info: "",
+                words_info: "",
+                subtitle: "王者荣耀",
+                number: 0,
+                serial_id: 0,
+                serial_list: [
+
+                ],
+                movie_story_id: "3668",
+                ad_id: 0,
+                ad_type: 0,
+                ad_pvurl: "",
+                ad_linkurl: "",
+                ad_makettime: "",
+                ad_closetime: "",
+                ad_share_cnt: "",
+                ad_pvurl_vendor: "",
+                content_id: "685",
+                content_type: "5",
+                content_bgcolor: "#FFFFFF",
+                share_url: "http://m.wufazhuce.com/movie/685",
+                share_info: {
+                    url: "http://m.wufazhuce.com/movie/685",
+                    image: "http://image.wufazhuce.com/FtPPklywXYjdyLhHPGRWyrcGrBJ3",
+                    title: "「一个」电影: 王者荣耀",
+                    content: " var ONEGLOBAL={cache:"placeholder-one-cache-flag"} 如今，一个东西火到人尽皆知，就成了IP。IP被拍成电影，这年头，简直天经地义。《王者荣耀》就是这样的一个IP。腾讯影业和游戏的开发商腾讯游戏同属一家，真要拍电影，他们可谓近水楼台，连版权都不用买。据说，腾讯已经动过这个念头了。不过，在项目还没有任何眉目的时候，不少网友，已经替他们操起了这份心。B站一位叫&ldquo;北半球骚客&rdquo;的UP主，就自制了一部同人微电影，叫《抢红》。不仅号称是首款&ldquo;《王者荣耀》主题大电影，斥资3.8亿&rdquo;，而且还选好了主演和导演：黎明（首次）担任导演，并饰演刘邦，张涵予饰演成吉思汗，杜鹃饰演王昭君，王耀庆饰演扁鹊&hellip;&hellip;&nbsp;&nbsp;《抢红》01:42UP主：北半球骚客当然，以上纯属粉丝YY。这部微电影，实际上是选取以上几位明星出演过的影视作品片段，剪辑而成。讲述的是&ldquo;四个英雄争抢红buff的恩怨情仇&rdquo;。所谓红buff，玩过《王者荣耀》的人都知道啦，就是可以增强玩家攻击力的东西。短片中的四位英雄就是为了抢这个东西，打得不可开交，最终还悟到了生命的真谛，团结在了一起。这脑洞是不错。但讲真，《王者荣耀》拍成电影，到底有多难？这年头，把游戏改编成电影，几乎是个国际大势。好莱坞每年都会有一两部根据游戏改编的电影上映。比如这几年热度颇高的《魔兽》《刺客信条》《寂静岭》等等。但我们得注意，这些电影都有一个共同点&mdash;&mdash;原著游戏本身，都有十分完整的故事和世界观。《魔兽》的世界观和故事非常庞大，并且完整，角色种族与《指环王》有相似之处，有人类、矮人、精灵、法师等等，篇幅也绝不亚于后者。而邓肯&middot;琼斯导演的电影版《魔兽》，选取了整个体系的冰山一角来展现。在《刺客信条》的游戏里，你将化身刺客穿越回古代，通过刺杀残暴的统治阶级来改变历史进程，游戏有好几部，但每一部都有一个真实的历史事件作为故事背景。哪怕是《愤怒的小鸟》，也有一条完整的故事线&mdash;&mdash;猪偷了鸟生的蛋，所以鸟要去抢回来。它的世界观虽然简单，但也很完整：猪会盖房子，而不同的鸟，有不同的技能，猪和鸟，则代表了正反两方。而对于《王者荣耀》来说，世界观与故事，目前都很欠缺。先说世界观。度娘告诉我，《王者荣耀》的游戏背景是：&ldquo;无限时空中，时光的洪流汇聚于同一片大陆。机关术与魔道肆虐，让世界面目全非。英雄，那些熟知的名字，不可思议地聚集在一起。抛却了过往荣光，遵循野心与欲望，随心所欲寻求力量，乃至彼此追逐杀戮。而在一个又一个传奇的背后，唤灵师的身影时隐时现，没错，他们，才是历史真正的创造者，生存或者毁灭，战争，似乎永无止境。&rdquo;这段话看似酷炫，其实只透露了一个信息量&mdash;&mdash;我们有很多英雄可以让你选。对游戏来说，这个世界观设定尚可，但对电影来说，则远远不够。《人民日报》的官博曾经转载过一篇文章，叫《小学生玩还能学好历史吗？》。这有点小题大做，毕竟，《王者荣耀》不过是个手游，没有承担历史教育的义务。但涉及到电影改编，问题就不小了。首先，我不得不问：为什么荆轲在这个体系里，变成了女的？武则天是个法师？而大诗人李白的角色设定是个刺客？值得一提的是，这位荆轲不仅是女的，还是位巨乳美女这些问题都还不是最主要的。《王者荣耀》改编成电影，最棘手的问题在于，该找个什么由头，让这帮时代各异的大咖们，挤在同一个时空里，整天打打杀杀呢？更何况，游戏中的这几十位英雄，有的是历史真实人物，有的来自神话传说，有的不是中国人，有的直接就是游戏本身原创的。这一大帮人聚到一起，还不乱套了？《王者荣耀》中的一部分英雄，成分很复杂这可不是一句简单的&ldquo;无限时空中，时光的洪流汇聚于同一片大陆&rdquo;就能解释清楚的。说到故事，《王者荣耀》的改编难度就更大了。在腾讯的官网上，每个英雄都有一大段故事介绍，比如关二爷关羽，就被形容为&ldquo;世间最强的猎魔人之一&rdquo;，王昭君则是北夷人的公主，是被献祭给神明的新娘。《王者荣耀》官网中，关羽的背景故事但这些对玩家来说，并没有实际的意义。而如果直接将这些简介串到一起，改编成剧本呢？效果一定感人极了，我不敢想。这仗为什么要打？作为观众的我该支持哪一边？仗打完了会怎么样？人物的命运会发生什么改变？对故事中的这个世界会产生什么影响？这是改编中最重头最困难的部分。还有，这几十位英雄有什么人物性格，在故事里的主次地位，和谁关系好，和谁有矛盾&hellip;&hellip;所以，《王者荣耀》要是拍成电影，基本就是个填坑的过程。世界观要填，故事要填，工程量已经相当庞大了。&nbsp;填坑中的《王者荣耀》大电影编剧但，这还只是开始。游戏改编的电影还有一条不言自明的原则：即使故事另起炉灶，世界观重新设定，但细节，必须尽可能地保留游戏本身的亮点。《极品飞车》被拍成电影，里面的追车场面就绝不能逊于游戏，《古墓丽影》被拍成电影，安吉丽娜&middot;朱莉就必须照着游戏里的人物那样飞天遁地，《刺客信条》被拍成电影，法鲨不来个信仰之跃，片方你就等着被退票吧。《古墓丽影》的游戏和电影，朱莉的造型至少对得起游戏玩家《王者荣耀》的亮点是什么？无非是英雄的技能和皮肤，前者还好说，但后者&hellip;&hellip;如何让角色演着演着就换副打扮，如何让它合理不雷人，就够让编剧导演头疼了。&nbsp;不过，也许还有另一个更简单的思路，就是学《微微一笑很倾城》，不拍游戏，咱拍打游戏。这个场景里换到《王者荣耀》里，就是一帮人围在一起玩手机了这样，故事就多了去了。试想，有多少青年男女废寝忘食无视性生活，拿着手机，与队友鏖战到天明？有多少人在游戏里找到了生活中的恋人和挚友？又有多少人，因为沉迷游戏，把生活中的恋人和挚友给搞丢了？这些故事，结局有好有坏，有热血有悲情，有温馨有残酷，真要拍成电影，说不定也挺好看。但也有个问题，我真的要花钱进电影院，看一帮人因为玩一个手游，进而生活翻天覆地的电影吗？有这闲工夫，我还是多玩两把游戏吧。说回之前所说好莱坞的例子。其实，那些改编自游戏的电影，还有个共同点&mdash;&mdash;几乎都失败了。无论是票房还是口碑，这些电影都没有取得太好的成绩。以《魔兽》为例，它在北美仅获得了4700多万美元的票房，烂番茄的新鲜度只有28%，有点惨不忍睹。为什么？因为游戏和电影，是两种机制完全不同的载体。游戏注重的是参与度，玩家通过操纵角色，来参与叙事，参与解密，参与打斗，如果游戏是一个作品，那么从某种意义上来说，玩家也是这件作品的创作者。而这，是电影完全无法提供的。机制的不同，多半会带来落差。落差，必然会引发失望。说了这么多，难道《王者荣耀》真的不能被拍成电影吗？万事无绝对。我只能说，这事难度不小，必须步步谨慎，不能只看热度而不顾执行度。话先撂这儿，如果我最后被打脸，那就是游戏玩家和电影观众的福音，我甘心。&nbsp;电影上映后的我 "
+                },
+                share_list: {
+                    wx: {
+                        title: "电影 | 听说《王者荣耀》要改编成电影，为啥我隐隐觉得担忧？",
+                        desc: "文/肉山大魔王 各位玩家先把你们手中的刀放下，听我慢慢解释。",
+                        link: "http://m.wufazhuce.com/movie/685",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    },
+                    weibo: {
+                        title: "ONE·一个《电影 | 听说《王者荣耀》要改编成电影，为啥我隐隐觉得担忧？》 文/肉山大魔王： 各位玩家先把你们手中的刀放下，听我慢慢解释。 阅读全文：http://m.wufazhuce.com/movie/685 下载ONE·一个APP:http://weibo.com/p/100404157874",
+                        desc: "",
+                        link: "",
+                        imgUrl: ""
+                    },
+                    qq: {
+                        title: "听说《王者荣耀》要改编成电影，为啥我隐隐觉得担忧？",
+                        desc: "各位玩家先把你们手中的刀放下，听我慢慢解释。",
+                        link: "http://m.wufazhuce.com/movie/685",
+                        imgUrl: "http://image.wufazhuce.com/ONE_logo_120_square.png"
+                    }
+                },
+                tag_list: [
+
+                ]
+            }
+        ]
+    }
+}
+
+
+深夜电台链接：电台页面：<audio loop="loop" id="myAudio" preload="auto">
+                            <source src="http://music.wufazhuce.com/lgV3IhOiJqv1rRdCn7vGHa7u9h2A">
+                        </audio>
+
+音乐链接：shareurl进入的页面：<audio src="http://om5.alicdn.com/396/78396/395591/1769692638_1515668_l.mp3?auth_key=4c9ac9cae92035da5e40fde63cc3dd2f-1494644400-0-null" id="song" class="realAudioPlayer" controls=""></audio>
+
+audio_url:1769692638

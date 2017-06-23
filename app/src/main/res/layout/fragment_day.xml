@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_day_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f00"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <LinearLayout
+        android:id="@+id/fd_root_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="One is Enough   一个就够了"
+            android:gravity="center"/>-->
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
+
+<!--
+<RelativeLayout
+android:id="@+id/fd_one_pic"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+<ImageView
+    android:id="@+id/fd_pic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+<TextView
+    android:id="@+id/fd_pic_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_pic"/>
+<TextView
+    android:id="@+id/fd_pic_author"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_pic"
+    android:layout_alignParentRight="true"/>
+<TextView
+    android:id="@+id/fd_words"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_pic_title" />
+<TextView
+    android:id="@+id/fd_words_author"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_words"
+    android:layout_alignParentRight="true"/>
+</RelativeLayout>
+
+<RelativeLayout
+android:id="@+id/fd_one_story"
+android:layout_marginTop="4dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/fd_story_text"
+    android:text="-ONE STORY-"
+    android:textSize="8dp"
+    android:textAlignment="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+<TextView
+    android:id="@+id/fd_story_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_story_text"/>
+<TextView
+    android:id="@+id/fd_story_author"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_story_title"/>
+<ImageView
+    android:id="@+id/fd_story_pic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_below="@id/fd_story_author"/>
+<TextView
+    android:id="@+id/fd_story_abstract"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+</RelativeLayout>
+<RelativeLayout
+android:id="@+id/fd_one_qa"
+android:layout_marginTop="4dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/fd_qa_text"
+    android:text="-QUESTION ANSWER-"
+    android:textSize="8dp"
+    android:textAlignment="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+<TextView
+    android:id="@+id/fd_qa_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_qa_text"/>
+<TextView
+    android:id="@+id/fd_qa_answer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/fd_qa_title"/>
+<ImageView
+    android:id="@+id/fd_qa_pic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_below="@id/fd_qa_answer"/>
+<TextView
+    android:id="@+id/fd_qa_abstract"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+</RelativeLayout>-->

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/image_view_activity_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.lzx.materialone.activities.ImageViewAct">
+
+    <ImageView
+        android:id="@+id/detail_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:transitionName="shareImage"
+        />
+    <TextView
+        android:id="@+id/detail_pic_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#eee"/>
+</LinearLayout>
