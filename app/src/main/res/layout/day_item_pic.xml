@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/day_item_one_pic"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardElevation="30dp"
-    app:cardCornerRadius="4dp"
-    app:contentPaddingLeft="10dp"
-    app:contentPaddingRight="10dp"
-    app:contentPaddingBottom="10dp">
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/mim_distance"
+    android:elevation="30dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="2dp"
+    app:contentPadding="@dimen/mim_distance">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -17,28 +17,29 @@
         <ImageView
             android:id="@+id/day_item_pic"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:transitionName="shareImage"/>
+            android:layout_height="350dp"
+            android:scaleType="fitXY"
+            android:transitionName="shareImage"
+            android:layout_marginBottom="@dimen/mim_distance"/>
         <TextView
             android:id="@+id/day_item_pic_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="10dp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:layout_marginBottom="@dimen/mim_distance"/>
         <TextView
             android:id="@+id/day_item_words"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="22dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="6dp"/>
+            android:textSize="@dimen/wordsize_subtitle"
+            android:layout_marginBottom="@dimen/mim_distance"/>
         <TextView
             android:id="@+id/day_item_words_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="textEnd"
-            android:textSize="12dp"/>
+            android:textSize="12dp"
+            android:layout_marginBottom="8dp"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:padding="@dimen/mim_distance"
     tools:context="com.lzx.materialone.activities.ImageViewAct">
 
     <ImageView
@@ -20,5 +21,6 @@
         android:id="@+id/detail_pic_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mim_distance"
         android:textColor="#eee"/>
 </LinearLayout>

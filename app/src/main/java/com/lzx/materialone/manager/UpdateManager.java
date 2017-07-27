@@ -8,7 +8,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import com.lzx.materialone.Bean.download.DownloadService;
+import com.lzx.materialone.bean.download.DownloadService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,7 +61,7 @@ public class UpdateManager {
                     int nVersion = jsonObject.getInt(versionKey);
                     PackageInfo pkg = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0);
                     int oVersion = pkg.versionCode;
-                    if (oVersion == nVersion){
+                    if (oVersion >= nVersion){
                         return "没有更新";
                     }else{
                         if (infoKey != null){
@@ -134,4 +134,6 @@ public class UpdateManager {
             mContext.stopService(intent);
         }
     }
+
+
 }

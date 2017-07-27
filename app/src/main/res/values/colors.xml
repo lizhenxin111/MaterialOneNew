@@ -8,4 +8,7 @@
     <color name="imageBac">#d000</color>
     <color name="transparent">#0000</color>
     <color name="titleText">#fff</color>
+    <color name="white">#ffffff</color>
+
+    <color name="black_semi_transparent">#B2000000</color>
 </resources>

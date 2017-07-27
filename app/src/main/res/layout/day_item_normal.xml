@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardElevation="30dp"
-    app:cardCornerRadius="4dp"
-    app:contentPaddingLeft="10dp"
-    app:contentPaddingRight="10dp">
+    android:layout_margin="@dimen/mim_distance"
+    android:elevation="30dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="2dp"
+    app:contentPadding="@dimen/mim_distance">
     <LinearLayout
         android:id="@+id/day_item_root"
         android:orientation="vertical"
@@ -18,33 +19,35 @@
             android:textSize="8dp"
             android:textAlignment="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"/>
+            android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/day_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="22dp"
-            android:layout_margin="4dp"/>
+            android:textSize="@dimen/wordsize_appbar"
+            android:layout_margin="4dp"
+            android:transitionName="shareIitle"/>
         <TextView
             android:id="@+id/day_item_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="textEnd"
-            android:textSize="12dp"/>
+            android:layout_margin="4dp"
+            android:textSize="@dimen/wordsize_content"/>
         <ImageView
             android:id="@+id/day_item_pic"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"
-            android:transitionName="shareImageView"/>
+            android:scaleType="fitXY"
+            android:transitionName="shareImageView"
+            android:layout_margin="8dp"/>
 
         <TextView
             android:id="@+id/day_item_abstract"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"/>
+            android:textSize="@dimen/wordsize_subtitle"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

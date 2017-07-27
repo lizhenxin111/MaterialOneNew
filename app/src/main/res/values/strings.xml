@@ -18,8 +18,17 @@
     <string name="get_permisson">已经获取到必要的权限</string>
     <string name="file_not_exist">文件不存在，请重新下载</string>
     <string name="update">更新</string>
+    <string name="autoupdate">自动更新</string>
     <string name="settings">设置</string>
     <string name="goto_permission_setting">跳转</string>
+    <string name="nav_tip">手势指南</string>
+    <string name="motion_tip">手势使用指南</string>
+    <string name="motion_tip_content">主界面向左滑动：查看下一天的内容\n\n主界面向右滑动：查看上一天的内容\n\n长按每日一图卡片：分享\n\n长按文章卡片上的图片：保存图片\n\n\n</string>
+
+    <string name="socialityAppAuthorization">社交应用授权</string>
+    <string name="authSuccess">授权成功</string>
+    <string name="authFailed">授权失败</string>
+    <string name="authCancel">取消授权</string>
 
     <string name="title_activity_splash">One</string>
     <string name="dummy_button">Dummy Button</string>
@@ -27,6 +36,7 @@
 
     <string name="title_activity_guide">GuideAct</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_saa">社交应用授权</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

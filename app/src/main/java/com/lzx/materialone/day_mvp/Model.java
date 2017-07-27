@@ -1,12 +1,12 @@
 package com.lzx.materialone.day_mvp;
 
 import com.google.gson.Gson;
-import com.lzx.materialone.Bean.data.common_item.BasicData;
-import com.lzx.materialone.Bean.data.common_item.ItemData;
-import com.lzx.materialone.Bean.data.day.DayContentId;
-import com.lzx.materialone.Bean.data.day.content.ContentData;
-import com.lzx.materialone.Bean.data.day.content.DayContent;
-import com.lzx.materialone.Bean.data.day.content.Weather;
+import com.lzx.materialone.bean.data.common_item.BasicData;
+import com.lzx.materialone.bean.data.common_item.ItemData;
+import com.lzx.materialone.bean.data.day.DayContentId;
+import com.lzx.materialone.bean.data.day.content.ContentData;
+import com.lzx.materialone.bean.data.day.content.DayContent;
+import com.lzx.materialone.bean.data.day.content.Weather;
 
 import java.io.IOException;
 import java.util.List;

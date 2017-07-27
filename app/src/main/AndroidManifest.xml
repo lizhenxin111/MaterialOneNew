@@ -4,9 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".manager.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,7 +25,17 @@
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <!--
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            -->
+        </activity>
         <activity
             android:name=".activities.DetailAct"
             android:theme="@style/DetailActTheme" />
@@ -42,12 +55,13 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".Bean.download.DownloadService" />
+        <service android:name=".bean.download.DownloadService" />
 
-        <receiver android:name=".Bean.download.LocalReceiver"/>
+        <receiver android:name=".bean.download.LocalReceiver" />
 
-        <activity android:name=".activities.DetailMusicAct"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.DetailMusicAct"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -58,6 +72,19 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path" />
         </provider>
+
+        <!--
+        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"></activity>
+
+        <service android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false"></service>
+        -->
+
+        <activity android:name=".activities.SAAAct"
+            android:label="@string/title_activity_saa"></activity>
     </application>
 
 </manifest>

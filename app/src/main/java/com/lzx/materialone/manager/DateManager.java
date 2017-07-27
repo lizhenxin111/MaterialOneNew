@@ -1,5 +1,12 @@
 package com.lzx.materialone.manager;
 
+import android.app.Activity;
+import android.content.Context;
+import android.widget.TextView;
+
+import com.lzx.materialone.R;
+import com.lzx.materialone.activities.MainActivity;
+
 import java.util.Calendar;
 
 /**

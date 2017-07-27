@@ -1,9 +1,0 @@
-javascript:function getUrl(){
-    var url;
-    var ele = document.querySelector(audio.realAudioPlayer);
-    if(ele == null){
-        ele = document.querySelector(#myAudio);
-    }
-    url = ele.src;
-    window.webview.initAudioFunction(url);
-}

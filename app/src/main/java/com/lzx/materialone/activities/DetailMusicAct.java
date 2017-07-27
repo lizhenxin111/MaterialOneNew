@@ -8,8 +8,10 @@ import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
-import com.lzx.materialone.Bean.javascript.JSFunction;
+import com.lzx.materialone.bean.javascript.JSFunction;
+import com.lzx.materialone.bean.view.Loading;
 import com.lzx.materialone.R;
 
 import java.io.IOException;
@@ -17,29 +19,42 @@ import java.io.InputStream;
 
 public class DetailMusicAct extends AppCompatActivity {
 
-    WebView webView;
+    private Loading loading;
+    private WebView webView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_music);
 
+        loading = new Loading(this, R.style.loading, 1);
+        loading.show();
+        initToolbar();
+        initWebView();
+    }
+
+    private void initToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_music_toolbar);
-        toolbar.setTitle(getIntent().getStringExtra("title"));
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        toolbar.setTitle("");
+        TextView textView = (TextView)findViewById(R.id.detail_music_toolbar_title);
+        textView.setText(getIntent().getStringExtra("title"));
+    }
 
+    private void initWebView(){
         webView = (WebView)findViewById(R.id.detail_music_activity_webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
+                //super.onPageFinished(view, url);
                 webView.loadUrl(getJsFromFile("Javascript/remove"));
                 webView.loadUrl("javascript:remove()");
+                loading.dismiss();
             }
         });
         webView.setWebChromeClient(new WebChromeClient());
@@ -65,10 +80,15 @@ public class DetailMusicAct extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                finish();
+                this.finishAfterTransition();
                 return true;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finishAfterTransition();
     }
 
     @Override
@@ -78,7 +98,6 @@ public class DetailMusicAct extends AppCompatActivity {
             webView.clearCache(true);
             webView.clearHistory();
             webView.destroy();
-            webView = null;
         }
     }
 }

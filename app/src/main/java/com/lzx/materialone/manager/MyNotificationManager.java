@@ -6,12 +6,18 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Build;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 /**
  * 适配器模式封装通知管理类
  */
 
 public class MyNotificationManager {
+
+    public static void showToast(Context context, String message, int duration){
+        Toast.makeText(context, message, duration).show();
+    }
+
     private Notification.Builder builder;
     private NotificationManager notificationManager;
 

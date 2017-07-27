@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    tools:context="com.lzx.materialone.activities.SAAAct">
+
+    <LinearLayout
+        android:id="@+id/authorize_to_sina"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:paddingRight="16dp"
+            android:src="@mipmap/weibo_logo"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:text="微博"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+</LinearLayout>

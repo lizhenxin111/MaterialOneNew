@@ -203,7 +203,7 @@ public class GuideAct extends AppCompatActivity implements View.OnClickListener 
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return view == mList.get((int)Integer.parseInt(object.toString()));
+            return view == mList.get(Integer.parseInt(object.toString()));
         }
 
         @Override

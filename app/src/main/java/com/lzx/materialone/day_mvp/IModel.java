@@ -1,7 +1,7 @@
 package com.lzx.materialone.day_mvp;
 
-import com.lzx.materialone.Bean.data.common_item.BasicData;
-import com.lzx.materialone.Bean.data.common_item.ItemData;
+import com.lzx.materialone.bean.data.common_item.BasicData;
+import com.lzx.materialone.bean.data.common_item.ItemData;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 1.api分析：
 host: v3.wufazhuce.com:8000
 header:
-     内容id列表：/api/onelist/idlist/?channel=huawei&version=4.1.0&uuid=&platform=android
-     内容列表：/api/adposlist/android?channel=huawei&version=4.1.0&uuid=&platform=android
+     内容id列表：v3.wufazhuce.com:8000/api/onelist/idlist/?channel=huawei&version=4.1.0&uuid=&platform=android
+     内容列表：v3.wufazhuce.com:8000/api/adposlist/android?channel=huawei&version=4.1.0&uuid=&platform=android
      广告列表：/api/adlist/android?channel=huawei&version=4.1.0&uuid=&platform=android
 今日内容地址的结构：v3.wufazhuce.com:8000/api/onelist/内容id/0?channel=huawei&version=4.1.0&uuid=&platform=android
 

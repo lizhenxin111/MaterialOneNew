@@ -2,13 +2,13 @@ package com.lzx.materialone.day_mvp;
 
 import android.view.View;
 import com.google.gson.Gson;
-import com.lzx.materialone.Bean.data.common_item.BasicData;
-import com.lzx.materialone.Bean.data.common_item.ItemData;
-import com.lzx.materialone.Bean.data.day.content.Author;
-import com.lzx.materialone.Bean.data.day.content.ContentData;
-import com.lzx.materialone.Bean.data.day.content.ContentItem;
-import com.lzx.materialone.Bean.data.day.content.DayContent;
-import com.lzx.materialone.Bean.data.day.content.Weather;
+import com.lzx.materialone.bean.data.common_item.BasicData;
+import com.lzx.materialone.bean.data.common_item.ItemData;
+import com.lzx.materialone.bean.data.day.content.Author;
+import com.lzx.materialone.bean.data.day.content.ContentData;
+import com.lzx.materialone.bean.data.day.content.ContentItem;
+import com.lzx.materialone.bean.data.day.content.DayContent;
+import com.lzx.materialone.bean.data.day.content.Weather;
 
 import java.util.ArrayList;
 import java.util.List;

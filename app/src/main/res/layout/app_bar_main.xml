@@ -9,14 +9,14 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:elevation="30dp">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/navigationbar_height"
             android:background="?attr/colorPrimary"
+            android:elevation="30dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_scrollFlags="scroll|snap|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
@@ -26,12 +26,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/main_title"
                 android:textColor="@color/titleText"
-                android:textSize="22dp"
+                android:textSize="@dimen/wordsize_appbar"
                 android:layout_gravity="center"/>
             <TextView
                 android:id="@+id/main_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/wordsize_subtitle"
                 android:layout_marginRight="20dp"
                 android:textColor="@color/titleText"
                 android:layout_gravity="right|center_vertical"/>
@@ -40,14 +41,5 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
-
-    <com.lzx.materialone.Bean.view.ExpandableFloatingActionButton
-        android:id="@+id/main_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:elevation="30dp"/>
 
 </android.support.design.widget.CoordinatorLayout>

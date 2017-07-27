@@ -5,20 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f00"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
-    <LinearLayout
-        android:id="@+id/fd_root_layout"
-        android:orientation="vertical"
+    <!--<android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/frag_day_swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-        <!--<TextView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+        <LinearLayout
+            android:id="@+id/fd_root_layout"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="One is Enough   一个就够了"
-            android:gravity="center"/>-->
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+            <!--<TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="One is Enough   一个就够了"
+                android:gravity="center"/>-->
+        </LinearLayout>
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 
 </android.support.v4.widget.NestedScrollView>
 

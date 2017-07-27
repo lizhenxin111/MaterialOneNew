@@ -12,13 +12,11 @@
             android:title="设置" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="分享" />
-        </menu>
-    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_tip"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/nav_tip" />
+    </group>
 
 </menu>
