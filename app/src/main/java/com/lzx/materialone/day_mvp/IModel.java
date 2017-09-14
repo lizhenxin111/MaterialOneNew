@@ -2,6 +2,8 @@ package com.lzx.materialone.day_mvp;
 
 import com.lzx.materialone.bean.data.common_item.BasicData;
 import com.lzx.materialone.bean.data.common_item.ItemData;
+import com.lzx.materialone.bean.data.day.content.ContentItem;
+import com.lzx.materialone.bean.data.day.content.Weather;
 
 import java.util.List;
 
@@ -10,7 +12,9 @@ import java.util.List;
  */
 
 public interface IModel {
-    List<ItemData> getItemDataList();
-    BasicData getBasicData();
-    String getContentJson();
+    //BasicData getBasicData();
+    String getDate();
+    List<ContentItem> getContentItem();
+    Weather getWeather();
+    int getId();
 }

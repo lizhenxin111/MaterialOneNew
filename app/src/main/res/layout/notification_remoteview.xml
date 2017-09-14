@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="16dp">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_weight="0"
+        android:layout_margin="8dp"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/ic_launcher_translution"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/noti_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
+    </LinearLayout>
+    <ImageButton
+        android:id="@+id/music_noti_toggle"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:background="#00000000"/>
+    <ImageButton
+        android:id="@+id/music_noti_cancel"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@mipmap/noti_close_translution"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>

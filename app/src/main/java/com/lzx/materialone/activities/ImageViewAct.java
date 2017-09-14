@@ -52,7 +52,7 @@ public class ImageViewAct extends AppCompatActivity implements View.OnLongClickL
         imageView = (ImageView)findViewById(R.id.detail_imageview);
         //getImage(imageView, url);
         imageManager = new ImageManager();
-        imageManager.setImageFromUrl(imageView, url, 100, true);
+        imageManager.setImageFromUrl(this, imageView, url, true);
 
         imageView.setOnLongClickListener(this);
 

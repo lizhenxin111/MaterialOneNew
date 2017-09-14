@@ -7,6 +7,10 @@ import java.util.List;
  */
 
 public class ContentItem {
+    public static final int CONTENT_TEXT = 1;
+    public static final int CONTENT_MUSIC = 2;
+    public static final int CONTENT_FM = 3;
+
     private String id;
     private String category;
     private String display_category;
@@ -39,10 +43,11 @@ public class ContentItem {
     private String ad_share_cnt;
     private String ad_pvurl_vendor;
     private String content_id;
-    private String content_type;
+    private int content_type;
     private String content_bgcolor;
     private List<TagList> tag_list;      //tag_list是一个数组！！！
     private String share_url;
+    private int is_regular;
 
     //仅在电台栏目里有
     private String music_name;
@@ -77,15 +82,51 @@ public class ContentItem {
     public List<Integer> getSerialList(){return serial_list;}
     public String getMovieStoryId(){return movie_story_id;}
     public String getContentId(){return content_id;}
-    public String getContentType(){return content_type;}
-    public TagList getTagList(){
-        if (tag_list.isEmpty()){
-            return null;
+    public int getContentType(){
+        if (category.equals("4")){
+            if (tag_list == null){
+                return CONTENT_MUSIC;
+            }else {
+                return CONTENT_FM;
+            }
         }else {
-            return tag_list.get(0);
+            return CONTENT_TEXT;
         }
     }
-    public String getCategory(){return category;}
+    public List<TagList> getTagList(){
+        return tag_list;
+    }
+
+
+    /**
+     * @return is_regular == 1 : radio is exit
+     *          is_regular == 2 : no radio
+     */
+    public int getIsRegular(){
+        return is_regular;
+    }
+    public String getCategory(){
+        if (!tag_list.isEmpty()){
+            return tag_list.get(0).getTitle();
+        } else {
+            switch (category){
+                case "0":
+                    return "每日一图";
+                case "2":
+                    return "连载";
+                case "3":
+                    return "问答";
+                case "4":
+                    return "音乐";
+                case "5":
+                    return "电影";
+                case "8":
+                    return "深夜电台";
+                default:
+                    return null;
+            }
+        }
+    }
     public String getItemId(){return item_id;}
     public String getAudioPlatform(){return audio_platform;}
     public String getSubTitle(){return subTitle;}

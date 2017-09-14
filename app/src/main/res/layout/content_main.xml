@@ -10,17 +10,22 @@
     tools:context="com.lzx.materialone.activities.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_view_Pager"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/main_offline_textview"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_view_Pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/main_offline_text" />
-    </android.support.v4.view.ViewPager>
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/main_offline_textview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/main_offline_text" />
+        </android.support.v4.view.ViewPager>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 <!--    <android.support.v4.widget.NestedScrollView
         android:id="@+id/main_bottom_sheet"

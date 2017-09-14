@@ -7,4 +7,6 @@ javascript:function remove(){
     d.parentNode.removeChild(d);
     var e = document.querySelector("hr.sort-separate-line15");
     e.parentNode.removeChild(e);
+    var f = document.querySelector("img.one-image-exclude");
+    f.parentNode.removeChild(f);
 }

@@ -15,7 +15,15 @@ import com.lzx.materialone.R;
  */
 
 public class FragCircle extends Fragment {
+
+    public interface OnContentClickListener{
+        void onClick(View v);
+    }
+
+    private OnContentClickListener mOnContentClickListener = null;
+
     private String mContent;
+    private TextView mContentView;
 
     public void setContent(String content){
         mContent = content;
@@ -25,7 +33,12 @@ public class FragCircle extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_vp_circle, container, false);
-        ((TextView)view.findViewById(R.id.fragment_vp_circle_tv)).setText(mContent);
+        mContentView = (TextView)view.findViewById(R.id.fragment_vp_circle_tv);
+        mContentView.setText(mContent);
         return view;
+    }
+
+    public void setOnContentClickListener(final OnContentClickListener onContentClickListener){
+        mOnContentClickListener = onContentClickListener;
     }
 }

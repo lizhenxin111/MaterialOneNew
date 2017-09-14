@@ -5,6 +5,7 @@ import com.lzx.materialone.bean.data.common_item.BasicData;
 import com.lzx.materialone.bean.data.common_item.ItemData;
 import com.lzx.materialone.bean.data.day.DayContentId;
 import com.lzx.materialone.bean.data.day.content.ContentData;
+import com.lzx.materialone.bean.data.day.content.ContentItem;
 import com.lzx.materialone.bean.data.day.content.DayContent;
 import com.lzx.materialone.bean.data.day.content.Weather;
 
@@ -23,96 +24,83 @@ import okhttp3.Response;
  */
 
 public class Model implements IModel {
-    private String contentJson = null;
-    private boolean completeFlag = false;
+    private DayContent mDayContent = null;
     private int l;
     public Model(int l){
         this.l = l;
     }
 
-    @Override
-    public List<ItemData> getItemDataList(){
-        return null;
-    }
 
-    @Override
-    public BasicData getBasicData() {
-        Callable<BasicData> callable = new Callable<BasicData>() {
+    public void setDayContent(){
+        Callable<String> callable = new Callable<String>() {
             @Override
-            public BasicData call() throws Exception {
-                BasicData basicData;
-                Gson contentGson = new Gson();
-                DayContent content = contentGson.fromJson(getContentJson(), DayContent.class);
-                ContentData contentData = content.getData();
-                String date = contentData.getDate();
-                Weather weather = contentData.getWeather();
-                String climate = weather.getClimate();
-                String cityName = weather.getCityName();
-                basicData = new BasicData(date, cityName, climate);
-                return basicData;
+            public String call() throws Exception {
+                String mContentJson = null;
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    Request idRequest = new Request.Builder()
+                            .url("http://v3.wufazhuce.com:8000/api/onelist/idlist")
+                            .build();
+                    Response idResponse = client.newCall(idRequest).execute();
+                    String idJson = idResponse.body().string();
+                    Gson idGson = new Gson();
+                    DayContentId contentId = idGson.fromJson(idJson, DayContentId.class);
+                    List<Integer> idList = contentId.getData();
+                    int aimId = idList.get(l);
+                    Request contentRequest = new Request.Builder()
+                            //.url("http://v3.wufazhuce.com:8000/api/onelist/3994         /0?channel=huawei&version=4.1.0&uuid=&platform=android")
+                            .url("http://v3.wufazhuce.com:8000/api/onelist/" + aimId + "/0?version=4.3.0")
+                            .build();
+                    Response contentResponse = client.newCall(contentRequest).execute();
+                    mContentJson = contentResponse.body().string();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return mContentJson;
             }
         };
-        FutureTask<BasicData> task = new FutureTask<BasicData>(callable);
+        FutureTask<String> task = new FutureTask<String>(callable);
         Thread thread = new Thread(task);
         thread.start();
-        BasicData basicData = null;
-        try{
-            basicData = task.get();
+        Gson gson = new Gson();
+        try {
+            mDayContent = gson.fromJson(task.get(), DayContent.class);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
-        }finally {
-            return basicData;
         }
     }
 
     @Override
-    public String getContentJson(){
-        if (contentJson != null){
-            return contentJson;
-        }else {
-            Callable<String> callable = new Callable<String>() {
-                @Override
-                public String call() throws Exception {
-                    String mContentJson = null;
-                    try {
-                        OkHttpClient client = new OkHttpClient();
-                        Request idRequest = new Request.Builder()
-                                .url("http://v3.wufazhuce.com:8000/api/onelist/idlist")
-                                .build();
-                        Response idResponse = client.newCall(idRequest).execute();
-                        String idJson = idResponse.body().string();
-                        Gson idGson = new Gson();
-                        DayContentId contentId = idGson.fromJson(idJson, DayContentId.class);
-                        List<Integer> idList = contentId.getData();
-                        int aimId = idList.get(l);
-
-                        Request contentRequest = new Request.Builder()
-                                //.url("http://v3.wufazhuce.com:8000/api/onelist/3994         /0?channel=huawei&version=4.1.0&uuid=&platform=android")
-                                .url("http://v3.wufazhuce.com:8000/api/onelist/" + aimId + "/0")
-                                .build();
-                        Response contentResponse = client.newCall(contentRequest).execute();
-                        mContentJson = contentResponse.body().string();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return mContentJson;
-                }
-            };
-            FutureTask<String> task = new FutureTask<String>(callable);
-            Thread thread = new Thread(task);
-            thread.start();
-            String contentJson = null;
-            try{
-                contentJson = task.get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }finally {
-                return contentJson;
-            }
+    public String getDate(){
+        if (mDayContent == null){
+            setDayContent();
         }
+        return mDayContent.getData().getDate();
+    }
+
+    @Override
+    public List<ContentItem> getContentItem(){
+        if (mDayContent == null){
+            setDayContent();
+        }
+        return mDayContent.getData().getContentList();
+    }
+
+    @Override
+    public Weather getWeather(){
+        if (mDayContent == null){
+            setDayContent();
+        }
+        return mDayContent.getData().getWeather();
+    }
+
+    @Override
+    public int getId(){
+        if (mDayContent == null){
+            setDayContent();
+        }
+        return mDayContent.getData().getId();
     }
 }

@@ -13,7 +13,6 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.widget.Toast;
 
-
 import com.lzx.materialone.R;
 import com.lzx.materialone.activities.MainActivity;
 
@@ -87,8 +86,8 @@ public class DownloadService extends Service {
                 downloadUrl = url;
                 downloadTask = new DownloadTask(listener);
                 downloadTask.execute(downloadUrl);
-                startForeground(1, getNotification("Downloading...", 0));
-                Toast.makeText(DownloadService.this, "Downloading...", Toast.LENGTH_SHORT).show();
+                startForeground(1, getNotification(getResources().getString(R.string.downloading), 0));
+                Toast.makeText(DownloadService.this, getResources().getString(R.string.downloading), Toast.LENGTH_SHORT).show();
             }
         }
 

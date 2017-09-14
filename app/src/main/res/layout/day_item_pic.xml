@@ -9,7 +9,8 @@
     android:foreground="?android:attr/selectableItemBackground"
     app:cardElevation="4dp"
     app:cardCornerRadius="2dp"
-    app:contentPadding="@dimen/mim_distance">
+    app:contentPadding="@dimen/content_padding"
+    app:contentPaddingTop="@dimen/mim_distance">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         <ImageView
             android:id="@+id/day_item_pic"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"
             android:transitionName="shareImage"
             android:layout_marginBottom="@dimen/mim_distance"/>

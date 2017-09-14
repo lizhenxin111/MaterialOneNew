@@ -6,8 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:name=".manager.MyApp"
         android:allowBackup="true"
@@ -38,7 +37,9 @@
         </activity>
         <activity
             android:name=".activities.DetailAct"
-            android:theme="@style/DetailActTheme" />
+            android:theme="@style/DetailActTheme"
+            android:launchMode="singleTask">
+        </activity>
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings"
@@ -55,13 +56,15 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".bean.download.DownloadService" />
-
-        <receiver android:name=".bean.download.LocalReceiver" />
-
         <activity
             android:name=".activities.DetailMusicAct"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activities.SAAAct"
+            android:label="@string/title_activity_saa" />
+
+        <receiver android:name=".bean.download.LocalReceiver" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -73,18 +76,14 @@
                 android:resource="@xml/file_path" />
         </provider>
 
-        <!--
-        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
-            android:configChanges="keyboardHidden|orientation"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize"></activity>
 
-        <service android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false"></service>
-        -->
+        <service android:name=".services.MusicService"
+            android:exported="true"
+            android:enabled="true" />
 
-        <activity android:name=".activities.SAAAct"
-            android:label="@string/title_activity_saa"></activity>
+        <service android:name=".bean.download.DownloadService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>

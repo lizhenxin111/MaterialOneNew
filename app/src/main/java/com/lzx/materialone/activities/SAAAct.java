@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -79,7 +78,6 @@ public class SAAAct extends AppCompatActivity implements View.OnClickListener {
         @Override
         public void onFailure(WbConnectErrorMessage wbConnectErrorMessage) {
             MyNotificationManager.showToast(SAAAct.this, getString(R.string.authFailed), Toast.LENGTH_SHORT);
-            Log.d("WB", wbConnectErrorMessage.getErrorCode() + "    " + wbConnectErrorMessage.getErrorMessage());
         }
     }
 

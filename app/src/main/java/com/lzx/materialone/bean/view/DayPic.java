@@ -23,7 +23,7 @@ import com.lzx.materialone.manager.ImageManager;
  * 每日一图的自定义View
  */
 
-public class DayPic extends CardView {
+public class DayPic extends CardView implements View.OnClickListener {
     private Context mContext;
     private ImageView pic;
     private TextView picAuthor, words, wordsAuthor;
@@ -44,19 +44,7 @@ public class DayPic extends CardView {
         picAuthor = (TextView)findViewById(R.id.day_item_pic_author);
         words = (TextView)findViewById(R.id.day_item_words);
         wordsAuthor = (TextView)findViewById(R.id.day_item_words_author);
-        this.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (aimAct != null){
-                    Intent intent = new Intent(mContext, aimAct);
-                    intent.putExtra("imageUrl", tUrl);
-                    intent.putExtra("author", picAuthor.getText().toString());
-                    intent.putExtra("date", date);
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity)mContext, pic, "shareImage");
-                    mContext.startActivity(intent, options.toBundle());
-                }
-            }
-        });
+        cardView.setOnClickListener(this);
     }
 
     public void setPic(Bitmap image){
@@ -64,7 +52,7 @@ public class DayPic extends CardView {
     }
     public void setPicByUrl(String url){
         ImageManager imageManager = new ImageManager();
-        imageManager.setImageFromUrl(pic, url, 80, true);
+        imageManager.setImageFromUrl((Activity) mContext, pic, url, true);
     }
     public void setPicAuthor(String author){
         picAuthor.setText(author);
@@ -96,5 +84,15 @@ public class DayPic extends CardView {
         Bitmap bitmap = ((BitmapDrawable)pic.getDrawable()).getBitmap();
         pic.setDrawingCacheEnabled(false);
         return bitmap;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(mContext, ImageViewAct.class);
+        intent.putExtra("imageUrl", tUrl);
+        intent.putExtra("author", picAuthor.getText().toString());
+        intent.putExtra("date", date);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity)mContext, pic, "shareImage");
+        mContext.startActivity(intent, options.toBundle());
     }
 }

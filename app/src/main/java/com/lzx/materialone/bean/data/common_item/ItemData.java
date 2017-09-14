@@ -24,7 +24,6 @@ public class ItemData {
     private String imgUrl;
     private String userName;
     private String videoUrl;
-    private String audioUrl;
     private String picInfo;
     private String wordsInfo;
     private String subTitle;
@@ -40,8 +39,10 @@ public class ItemData {
     private String musicName;
     private String audioAuthor;
     private String audioAlbum;
+    private int is_regular;
     private InputStream picBytesInputSteam;
     private int contentTag;
+    private String audio_url;
 
     public String getId() {
         return id;
@@ -85,9 +86,6 @@ public class ItemData {
     }
     public String getVideoUrl() {
         return videoUrl;
-    }
-    public String getAudioUrl() {
-        return audioUrl;
     }
     public String getPicInfo() {
         return picInfo;
@@ -148,11 +146,14 @@ public class ItemData {
             return CONTENT_TEXT;
         }
     }
-
-
-    public void setAudioUrl(String audioUrl) {
-        this.audioUrl = audioUrl;
+    public int getIsRegular(){
+        return is_regular;
     }
+    public String getAudioUrl(){
+        return audio_url;
+    }
+
+
     public void setCategory(String category) {
         this.category = category;
     }
@@ -215,5 +216,11 @@ public class ItemData {
     }
     public void setMusicName(String musicName) {
         this.musicName = musicName;
+    }
+    public void setIsRegular(int regular){
+        is_regular = regular;
+    }
+    public void setAudioUrl(String url){
+        audio_url = url;
     }
 }

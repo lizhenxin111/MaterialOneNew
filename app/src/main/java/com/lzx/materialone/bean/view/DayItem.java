@@ -75,7 +75,7 @@ public class DayItem extends CardView implements View.OnClickListener, View.OnLo
     }
     public void setPicByUrl(final String url){
         ImageManager imageManager = new ImageManager();
-        imageManager.setImageFromUrl(pic, url, 80, true);
+        imageManager.setImageFromUrl((Activity) mContext, pic, url, true);
     }
 
     public void setContentUrl(String tContentUrl) {
@@ -89,19 +89,6 @@ public class DayItem extends CardView implements View.OnClickListener, View.OnLo
     }
     public void setContentTag(int contentTag) {
         this.contentTag = contentTag;
-    }
-
-    public String getAudioUrl() {
-        return tAudioUrl;
-    }
-    public String getImageUrl() {
-        return tImageUrl;
-    }
-    public String getContentUrl() {
-        return tContentUrl;
-    }
-    public int getContentTag() {
-        return contentTag;
     }
 
     @Override
